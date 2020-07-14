@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Site</title>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body class="not-home-page">
+
+  {% include 'navigation.html' %}
+
+  {% block main %}
+
+  {% include 'Product/product_details.html' %}
+  
+  {% endblock %}
+
+  {% include 'footer.html' %}
+
+</body>
+<script src="{% static './js/coustom.js' %}"></script>
+
+</html>

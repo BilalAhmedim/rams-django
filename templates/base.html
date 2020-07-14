@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Site</title>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body 
+{% if request.path != '/' %}
+class="not-home-page"
+{% endif %}
+>
+  {% include 'navigation.html' %}
+
+  {% block main %}
+  
+  {% if request.path == '/' %}
+    {% include 'Pages/index.html' %}
+  {% elif request.path == '/products' %}
+  {% include 'Pages/products.html' %}
+  {% elif request.path == '/about' %}
+    {% include 'Pages/about.html' %}
+  {% elif request.path == '/contact' %}
+    {% include 'Pages/contact.html' %}
+  {% endif %}
+  
+  {% endblock %}
+
+  {% include 'footer.html' %}
+
+</body>
+<script src="{% static './js/coustom.js' %}"></script>
+
+</html>

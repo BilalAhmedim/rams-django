@@ -1,0 +1,161 @@
+{% load static %}
+<div class="gallery">
+  <div class="header header--large-margin">
+    <h3><a href="{% url 'home' %}">Home &#47;</a><a href="#"> Products Category</a></h3>
+  </div>
+
+  <div class="row">
+
+    <div class="col-6">
+      <div class="slider">
+        <div class="carousel">
+
+          <div class="carousel__track-container">
+
+            <ul class="carousel__track">
+              <li class="carousel-slide current-slide">
+                <div class="carousel__images" data-image-src="{{ product.image_1.url }}" alt="{{product.name}}"></div>
+              </li>
+              {% if product.image_2 %}
+              <li class="carousel-slide">
+                <div class="carousel__images" data-image-src="{{ product.image_2.url }}" alt="{{product.name}}"></div>
+              </li>
+              {% endif %}
+              {% if product.image_3 %}
+              <li class="carousel-slide">
+                <div class="carousel__images" data-image-src="{{ product.image_3.url }}" alt="{{product.name}}"></div>
+              </li>
+              {% endif %}
+              {% if product.image_4 %}
+              <li class="carousel-slide">
+                <div class="carousel__images" data-image-src="{{ product.image_4.url }}" alt="{{product.name}}"></div>
+              </li>
+              {% endif %}
+            </ul>
+
+          </div>
+
+          <button class="carousel__button carousel__button--left">
+            <img src="{% static '/assets/previous.svg' %}" alt="Previous">
+          </button>
+
+          <button class="carousel__button carousel__button--right">
+            <img src="{% static '/assets/next.svg' %}" alt="Next">
+          </button>
+
+          <div class="carousel__nav">
+            <img class="carousel__indicator current-slide" src="{{ product.image_1.url }}" />
+            {% if product.image_2 %}
+            <img class="carousel__indicator" src="{{ product.image_2.url }}" />
+            {% endif %}
+            {% if product.image_3 %}
+            <img class="carousel__indicator" src="{{ product.image_3.url }}" />
+            {% endif %}
+            {% if product.image_4 %}
+            <img class="carousel__indicator" src="{{ product.image_4.url }}" />
+            {% endif %}
+          </div>
+        
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <div class="header">
+        <h1>{{product.name}}</h1>
+      </div>
+      <div class="product-description">
+
+        <p class="text dark">
+          Item No: <span>{{product.item_no}}</span>
+        </p>
+
+        <p class="text dark">
+          Dimensions: <span>Length {{product.length}} x Width {{product.width}} x Height {{product.hieght}}</span>
+        </p>
+
+        <p class="text dark">
+          Finish: <span>{{product.finish}}</span>
+        </p>
+
+        <p class="text dark">
+          Material: <span>{{product.material}}</span>
+        </p>
+
+        <p class="text dark">
+          Description: <span>{{product.description}}</span>
+        </p>
+
+        <button class="query">Send Query</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="query-form is-closed">
+    <div class="query-form__overlay">
+
+
+      <form>
+        <div class="query-form__overlay__close">
+          X
+        </div>
+        
+        <h2>Feel Free to ASQ</h2>
+
+        <input type="text" name="First_Name" placeholder="First Name"/>
+
+        <input type="text" name="Last_Name" placeholder="Last Name"/>
+
+        <input type="text" name="Email" placeholder="Email"/>
+
+        <input type="text" name="Phone" placeholder="+1" class="countrycode" />
+        <input type="text" name="Phone" placeholder="22123 45678" class="number" />
+
+        <textarea placeholder="Message" name="Message" id="message" cols="30" rows="4"></textarea>
+
+        <input type="submit" value="Submit" class="submit" />
+
+      </form>
+
+    </div>
+  </div>
+
+  <div class="similar-products">
+    <div class="header">
+      <h1>Similar Products</h1>
+    </div>
+
+    <div class="gallery__container">
+      
+      <div class="row">
+      {% for instance in object %}
+
+        <div class="col col-3">
+          <div class="gallery__card">
+            <a href="../{{instance.id}}">
+              <div class="gallery__card__inner">
+                <img src="{{ instance.image_1.url }}" alt="{{ instance.name }}" class="img-responsive">
+              </div>
+              <div class="gallery__card__caption">
+                <h3>{{ instance.name }}</h3>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      {% if forloop.counter|divisibleby:4 %}
+      </div>
+      <div class="row">
+      {% endif %}
+
+
+      {% endfor %}
+      </div>
+
+
+    </div>
+  </div>
+
+
+</div>

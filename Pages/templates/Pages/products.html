@@ -1,0 +1,231 @@
+{% load static %}
+<div class="gallery">
+  <div class="header header--large-margin">
+    <h3><a href="./index.html">Home &#47;</a><a href="#"> Products Category</a></h3>
+  </div>
+
+  <div class="row">
+
+    <div class="col-6">
+      <div class="slider">
+        <div class="carousel">
+
+          <div class="carousel__track-container">
+
+            <ul class="carousel__track">
+              <li class="carousel-slide current-slide">
+                <div class="carousel__images" data-image-src="{% static '/assets/5.jpg' %}" alt="1"></div>
+              </li>
+              <li class="carousel-slide">
+                <div class="carousel__images" data-image-src="{% static '/assets/6.jpg' %}" alt="2"></div>
+              </li>
+              <li class="carousel-slide">
+                <div class="carousel__images" data-image-src="{% static '/assets/7.jpg' %}" alt="3"></div>
+              </li>
+              <li class="carousel-slide">
+                <div class="carousel__images" data-image-src="{% static '/assets/8.jpg' %}" alt="4"></div>
+              </li>
+            </ul>
+
+          </div>
+
+          <button class="carousel__button carousel__button--left">
+            <img src="{% static '/assets/previous.svg' %}" alt="Previous">
+          </button>
+
+          <button class="carousel__button carousel__button--right">
+            <img src="{% static '/assets/next.svg' %}" alt="Next">
+          </button>
+
+          <div class="carousel__nav">
+            <img class="carousel__indicator current-slide" src="{% static './assets/5.jpg' %}" />
+            <img class="carousel__indicator" src="{% static './assets/6.jpg' %}" />
+            <img class="carousel__indicator" src="{% static './assets/7.jpg' %}" />
+            <img class="carousel__indicator" src="{% static './assets/8.jpg' %}" />
+          </div>
+        
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <div class="header">
+        <h1>Product Name</h1>
+      </div>
+      <div class="product-description">
+
+        <p class="text dark">
+          Item No: <span> #RMS4560</span>
+        </p>
+
+        <p class="text dark">
+          Dimensions: <span>Length 66" x Width 32" x Height 30"</span>
+        </p>
+
+        <p class="text dark">
+          Finish: <span>Nickel</span>
+        </p>
+
+        <p class="text dark">
+          Material: <span>Copper</span>
+        </p>
+
+        <p class="text dark">
+          Description: <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore illo magni, rerum molestias voluptates minus, quasi debitis adipisci placeat porro quam reiciendis eligendi nobis rem atque nihil modi est eum?</span>
+        </p>
+
+        <button class="query">Send Query</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="query-form is-closed">
+    <div class="query-form__overlay">
+
+
+      <form>
+        <div class="query-form__overlay__close">
+          X
+        </div>
+        
+        <h2>Feel Free to ASQ</h2>
+
+        <input type="text" name="First_Name" placeholder="First Name"/>
+
+        <input type="text" name="Last_Name" placeholder="Last Name"/>
+
+        <input type="text" name="Email" placeholder="Email"/>
+
+        <input type="text" name="Phone" placeholder="+1" class="countrycode" />
+        <input type="text" name="Phone" placeholder="22123 45678" class="number" />
+
+        <textarea placeholder="Message" name="Message" id="message" cols="30" rows="4"></textarea>
+
+        <input type="submit" value="Submit" class="submit" />
+
+      </form>
+
+    </div>
+  </div>
+
+  <div class="similar-products">
+    <div class="header">
+      <h1>Similar Products</h1>
+    </div>
+
+    <div class="gallery__container">
+      <div class="row">
+
+        <div class="col col-3">
+          <div class="gallery__card">
+            <a href="./products.html">
+              <div class="gallery__card__inner">
+                <img src="{% static '/assets/6.jpg' %}" alt="" class="img-responsive">
+              </div>
+              <div class="gallery__card__caption">
+                <h3>Products 1</h3>
+              </div>
+            </a>
+          </div>
+        </div>
+
+
+        <div class="col col-3">
+          <div class="gallery__card">
+            <a href="./products.html">
+              <div class="gallery__card__inner">
+                <img src="{% static '/assets/7.jpg' %}" alt="" class="img-responsive">
+              </div>
+              <div class="gallery__card__caption">
+                <h3>Products 1</h3>
+              </div>
+            </a>
+          </div>
+        </div>
+
+
+        <div class="col col-3">
+          <div class="gallery__card">
+            <a href="./products.html">
+              <div class="gallery__card__inner">
+                <img src="{% static '/assets/5.jpg' %}" alt="" class="img-responsive">
+              </div>
+              <div class="gallery__card__caption">
+                <h3>Products 1</h3>
+              </div>
+            </a>
+          </div>
+        </div>
+
+
+        <div class="col col-3">
+          <div class="gallery__card">
+            <a href="./products.html">
+              <div class="gallery__card__inner">
+                <img src="{% static '/assets/8.jpg' %}" alt="" class="img-responsive">
+              </div>
+              <div class="gallery__card__caption">
+                <h3>Products 1</h3>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="row">
+
+        <div class="col col-3">
+          <div class="gallery__card">
+            <div class="gallery__card__inner">
+              <img src="{% static '/assets/10.jpg' %}" alt="" class="img-responsive">
+            </div>
+            <div class="gallery__card__caption">
+              <h3>Products 1</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="col col-3">
+          <div class="gallery__card">
+            <div class="gallery__card__inner">
+              <img src="{% static '/assets/9.jpg' %}" alt="" class="img-responsive">
+            </div>
+            <div class="gallery__card__caption">
+              <h3>Products 1</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="col col-3">
+          <div class="gallery__card">
+            <div class="gallery__card__inner">
+              <img src="{% static '/assets/8.jpg' %}" alt="" class="img-responsive">
+            </div>
+            <div class="gallery__card__caption">
+              <h3>Products 1</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="col col-3">
+          <div class="gallery__card">
+            <div class="gallery__card__inner">
+              <img src="{% static '/assets/7.jpg' %}" alt="" class="img-responsive">
+            </div>
+            <div class="gallery__card__caption">
+              <h3>Products 1</h3>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+
+
+</div>
