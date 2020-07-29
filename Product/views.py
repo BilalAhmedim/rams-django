@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Product
+from .models import Product, Category
 
 # Create your views here.
 def product_details_view(request, id):
@@ -8,5 +8,13 @@ def product_details_view(request, id):
   context ={
     'object' : queryset,
     'product': productset,
+  }
+  return render(request, 'Product/base.html', context)
+
+def product_category_view(request, cats):
+  categoryset = Category.objects.all()
+  productset = Product.objects.all()
+  context ={
+    'category': categoryset,
   }
   return render(request, 'Product/base.html', context)

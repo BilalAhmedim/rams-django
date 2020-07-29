@@ -15,7 +15,13 @@
 
   {% block main %}
 
-  {% include 'Product/product_details.html' %}
+  {% if '/product_detials/' in request.path %}
+    {% include 'Product/product_details.html' %}
+  {% endif %}
+
+  {% if '/product_category/' in request.path %}
+    {% include 'Product/product_category.html' %}
+  {% endif %}
   
   {% endblock %}
 

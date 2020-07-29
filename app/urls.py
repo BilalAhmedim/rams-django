@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from Pages.views import home_view, product_view, about_view, contact_view
-from Product.views import product_details_view
+from Product.views import product_details_view, product_category_view
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -27,4 +27,5 @@ urlpatterns = [
     path('about', about_view, name='about'),
     path('contact', contact_view, name='contact'),
     path('product_detials/<int:id>/', product_details_view),
+    path('product_category/<str:cats>/', product_category_view),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

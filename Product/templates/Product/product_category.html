@@ -1,0 +1,45 @@
+{% load static %}
+<div class="gallery">
+  <div class="header header--large-margin">
+    <h3><a href="{% url 'home' %}">Home &#47;</a><a href="#"> Products Category</a></h3>
+  </div>
+
+
+  <div class="similar-products">
+    <div class="header">
+      <h1>Similar Products</h1>
+    </div>
+
+    <div class="gallery__container">
+      
+      <div class="row">
+      {% for instance in category %}
+
+        <div class="col col-3">
+          <div class="gallery__card">
+            <a href="../{{instance.name}}">
+              <div class="gallery__card__inner">
+                <img src="{{ instance.sample.url }}" alt="{{ instance.name }}" class="img-responsive">
+              </div>
+              <div class="gallery__card__caption">
+                <h3>{{ instance.name }}</h3>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      {% if forloop.counter|divisibleby:4 %}
+      </div>
+      <div class="row">
+      {% endif %}
+
+
+      {% endfor %}
+      </div>
+
+
+    </div>
+  </div>
+
+
+</div>
