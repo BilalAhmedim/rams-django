@@ -11,10 +11,16 @@ def product_details_view(request, id):
   }
   return render(request, 'Product/base.html', context)
 
-def product_category_view(request, cats):
+def product_category_view(request):
   categoryset = Category.objects.all()
-  productset = Product.objects.all()
   context ={
     'category': categoryset,
+  }
+  return render(request, 'Product/base.html', context)
+
+def absolute_product_view(request, product):
+  absoluteproduct = Product.objects.filter(category__name=product)
+  context ={
+    'absolutecategory': absoluteproduct,
   }
   return render(request, 'Product/base.html', context)

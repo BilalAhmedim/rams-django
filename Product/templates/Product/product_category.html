@@ -7,34 +7,66 @@
 
   <div class="similar-products">
     <div class="header">
-      <h1>Similar Products</h1>
+      <h1>
+        {% if category %}
+          {{ category.name }}
+        {% else %}
+          {{ absolutecategory.name }}
+        {% endif %}
+         Products</h1>
     </div>
 
     <div class="gallery__container">
       
       <div class="row">
-      {% for instance in category %}
+      {% if '/product_category/' == request.path %}
+        {% for instance in category %}
 
-        <div class="col col-3">
-          <div class="gallery__card">
-            <a href="../{{instance.name}}">
-              <div class="gallery__card__inner">
-                <img src="{{ instance.sample.url }}" alt="{{ instance.name }}" class="img-responsive">
-              </div>
-              <div class="gallery__card__caption">
-                <h3>{{ instance.name }}</h3>
-              </div>
-            </a>
+          <div class="col col-3">
+            <div class="gallery__card">
+              <a href="../product_category/{{instance.name}}">
+                <div class="gallery__card__inner">
+                  <img src="{{ instance.sample.url }}" alt="{{ instance.name }}" class="img-responsive">
+                </div>
+                <div class="gallery__card__caption">
+                  <h3>{{ instance.name }}</h3>
+                </div>
+              </a>
+            </div>
           </div>
+
+        {% if forloop.counter|divisibleby:4 %}
         </div>
+        <div class="row">
+        {% endif %}
 
-      {% if forloop.counter|divisibleby:4 %}
-      </div>
-      <div class="row">
+
+        {% endfor %}
+
+      {% else %}
+        {% for instance in absolutecategory %}
+
+          <div class="col col-3">
+            <div class="gallery__card">
+              <a href="{{instance.name}}">
+                <div class="gallery__card__inner">
+                  <img src="{{ instance.image_1.url }}" alt="{{ instance.name }}" class="img-responsive">
+                </div>
+                <div class="gallery__card__caption">
+                  <h3>{{ instance.name }}</h3>
+                </div>
+              </a>
+            </div>
+          </div>
+
+        {% if forloop.counter|divisibleby:4 %}
+        </div>
+        <div class="row">
+        {% endif %}
+
+
+        {% endfor %}
       {% endif %}
-
-
-      {% endfor %}
       </div>
 
 
