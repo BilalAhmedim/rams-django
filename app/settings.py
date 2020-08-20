@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '@!)2x8-)via#3t-05+)bm_1s$e3f6h5rgx730o2z0hv0_t&-na'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['http://localhost:5001/','https://webexpends.herokuapp.com/']
 
 
 # Application definition
