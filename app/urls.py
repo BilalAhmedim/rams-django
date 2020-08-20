@@ -19,6 +19,7 @@ from Pages.views import home_view, product_view, about_view, contact_view
 from Product.views import product_details_view, product_category_view, absolute_product_view
 from django.conf.urls.static import static
 from django.conf import settings
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,4 +30,5 @@ urlpatterns = [
     path('product_detials/<int:id>/', product_details_view),
     path('product_category/', product_category_view),
     path('product_category/<str:product>/', absolute_product_view, name='absoluteproduct'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += staticfiles_urlpatterns()
