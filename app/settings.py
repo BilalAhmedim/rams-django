@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '@!)2x8-)via#3t-05+)bm_1s$e3f6h5rgx730o2z0hv0_t&-na'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['http://127.0.0.1/', 'localhost', 'https://webexpends.herokuapp.com/']
+ALLOWED_HOSTS = ['http://127.0.0.1/', 'localhost', 'https://webexpends.herokuapp.com/', '*']
 
 
 # Application definition
@@ -123,9 +123,11 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'staticfiles'),
+    os.path.join(BASE_DIR, 'static'),
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'media') 
 MEDIA_URL = '/media/'
+
+# Primary KEy Config to True
+DEFAULT_AUTO_FIELD='django.db.models.AutoField'
